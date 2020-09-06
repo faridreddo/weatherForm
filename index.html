@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+    </head>
+    <body>
+        <form>
+            <label for = "weather"> Select the weather type today:</label>
+            <select id = "weather">
+                <option value = "">--Make a choice!--</option>
+                <option value = "sunny">Sunny</option>
+                <option value = "rainy">Rainy</option>
+                <option value = "snowing">Snowing</option>
+                <option value = "overcast">Overcast</option>
+            </select>
+        </form>
+        <p></p>
+        <script>
+        //storing a reference to both the <select> and <p> elements 
+        const select = document.querySelector('select');
+        const para = document.querySelector('p');
+
+        //adding an event listener to <select> so that when value is change(event), the setWeather() function runs
+        select.addEventListener('change', setWeather) 
+
+        function setWeather() {
+            const choice = select.value;
+
+            switch (choice) {
+                case 'sunny':
+                para.textContent = 'hot af'
+                break;
+
+                case 'rainy':
+                para.textContent = 'get wet'
+                break;
+
+                case 'snowing':
+                para.textContent = 'brr'
+                break;
+
+                case 'overcast': 
+                para.textContent = 'skies are turning grey'
+                break;
+
+                default:
+                para.textContent = '';
+            }
+        }
+        </script>
+    </body>
+</html>
